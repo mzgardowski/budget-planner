@@ -36,3 +36,5 @@ Pull requests are automatically labeled based on their source:
 - **dev-work**: PRs created from all other branches
 
 This helps track whether work was done by AI assistance or manual development.
+
+**Note:** Ensure the `ai` and `dev-work` labels exist in the repository before the workflow runs. The workflow requires write permissions for pull requests.
