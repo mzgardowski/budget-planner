@@ -34,6 +34,5 @@ jobs:
               labels: [label]
             });
 
-            const branch = branchName;
             console.log(`Added label "${label}" to PR #${prNumber}`);
-            console.log(`Branch: ${branch}`);
+            console.log(`Branch: ${branchName}`);
