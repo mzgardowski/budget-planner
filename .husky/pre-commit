@@ -1,0 +1,30 @@
+echo "🔍  Checking your code before commit..."
+
+# Run ESLint
+echo "🧹  Running ESLint..."
+yarn run lint:fix
+yarn lint
+if [ $? -ne 0 ]; then
+  echo "❌  ESLint found issues. Please fix them before committing."
+  exit 1
+fi
+
+# Run Prettier check
+echo "🎨  Checking Prettier formatting..."
+yarn run format
+if [ $? -ne 0 ]; then
+  echo "❌  Code is not formatted correctly. Run: yarn format"
+  exit 1
+fi
+
+# Optional: TypeScript type check
+if [ -f "tsconfig.json" ]; then
+  echo "🧠  Running TypeScript type check..."
+  yarn tsc --noEmit
+  if [ $? -ne 0 ]; then
+    echo "💥  TypeScript errors detected. Fix them before committing."
+    exit 1
+  fi
+fi
+
+echo "✅  All checks passed! Committing with confidence 😎"
